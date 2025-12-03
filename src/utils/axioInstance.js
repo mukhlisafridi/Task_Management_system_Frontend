@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ✅ CORRECT BASE URL - /api included
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://task-management-system-backend-beta.vercel.app";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
