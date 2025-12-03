@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // CORRECT BASE URL - /api included
-const BASE_URL = "https://task-management-system-backend-sigma.vercel.app";
+const BASE_URL = "http://localhost:3000/api";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -16,7 +16,7 @@ const axiosInstance = axios.create({
 // Request interceptor (optional - for debugging)
 axiosInstance.interceptors.request.use(
   (config) => {
-    console.log('📤 Request:', config.method.toUpperCase(), config.url);
+    console.log(' Request:', config.method.toUpperCase(), config.url);
     return config;
   },
   (error) => {

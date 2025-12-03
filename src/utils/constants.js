@@ -7,7 +7,7 @@ import {
   MdPeopleAlt,
 } from "react-icons/md";
 
-// ✅ Admin Menu
+//  Admin Menu
 export const SIDE_MENU_DATA = [
   {
     id: 1,
@@ -41,7 +41,7 @@ export const SIDE_MENU_DATA = [
   },
 ];
 
-// ✅ User Menu
+// User Menu
 export const USER_SIDE_MENU_DATA = [
   {
     id: 1,
@@ -63,7 +63,7 @@ export const USER_SIDE_MENU_DATA = [
   },
 ];
 
-// ✅ Other constants
+// Other constants
 export const PRIORITY_DATA = [
   { label: "Low", value: "Low" },
   { label: "Medium", value: "Medium" },
