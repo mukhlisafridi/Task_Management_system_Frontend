@@ -7,9 +7,13 @@ import { useNavigate } from "react-router-dom";
 import RecentTasks from "../../components/RecentTasks";
 import CustomPieChart from "../../components/CustomPieChart";
 import CustomBarChart from "../../components/CustomBarChart";
+import { FaTasks } from "react-icons/fa";
+import { MdPendingActions } from "react-icons/md";
+import { RiProgress5Line } from "react-icons/ri";
+import { GrCompliance } from "react-icons/gr";
 
-const PIE_COLORS = ["#e83a3a", "#FF8C00", "#21d351"];
-const BAR_COLORS = ["#21d351", "#FF8C00", "#e83a3a"];
+const PIE_COLORS = ["#6b21a8", "#a855f7", "#d8b4fe"];
+const BAR_COLORS = ["#d8b4fe", "#a855f7", "#6b21a8"];
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -74,7 +78,7 @@ const UserDashboard = () => {
         </div>
       </DashboardLayout>
     );
-  }
+  };
 
   return (
     <DashboardLayout activeMenu={"Dashboard"}>
@@ -105,43 +109,87 @@ const UserDashboard = () => {
             </div>
           </div>
         </div>
+
         {dashboardData && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl shadow-md text-white">
-              <h3 className="text-purple-100 text-sm font-medium">
-                Total Tasks
-              </h3>
-              <p className="text-4xl font-bold mt-2">
-                {dashboardData?.charts?.taskDistribution?.All || 0}
-              </p>
+            {/* Total Tasks Card */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                  <div className="text-purple-600 text-lg">
+                    <FaTasks />
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-gray-600 text-sm font-semibold">
+                    Total Tasks:
+                  </h3>
+                  <p className="text-2xl font-bold text-purple-600">
+                    {dashboardData?.charts?.taskDistribution?.All || 0}
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl shadow-md text-white">
-              <h3 className="text-purple-100 text-sm font-medium">
-                Pending Tasks
-              </h3>
-              <p className="text-4xl font-bold mt-2">
-                {dashboardData?.charts?.taskDistribution?.Pending || 0}
-              </p>
+            {/* Pending Tasks Card */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                  <div className="text-purple-600 text-lg">
+                    <MdPendingActions />
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-gray-600 text-sm font-semibold">
+                    Pending:
+                  </h3>
+                  <p className="text-2xl font-bold text-purple-600">
+                    {dashboardData?.charts?.taskDistribution?.Pending || 0}
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl shadow-md text-white">
-              <h3 className="text-purple-100 text-sm font-medium">
-                In Progress
-              </h3>
-              <p className="text-4xl font-bold mt-2">
-                {dashboardData?.charts?.taskDistribution?.InProgress || 0}
-              </p>
+            {/* In Progress Card */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                  <div className="text-purple-600 text-lg">
+                    <RiProgress5Line />
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-gray-600 text-sm font-semibold">
+                    In Progress:
+                  </h3>
+                  <p className="text-2xl font-bold text-purple-600">
+                    {dashboardData?.charts?.taskDistribution?.InProgress || 0}
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl shadow-md text-white">
-              <h3 className="text-purple-100 text-sm font-medium">Completed</h3>
-              <p className="text-4xl font-bold mt-2">
-                {dashboardData?.charts?.taskDistribution?.Completed || 0}
-              </p>
+            {/* Completed Card */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                  <div className="text-purple-600 text-lg">
+                    <GrCompliance />
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-gray-600 text-sm font-semibold">
+                    Completed:
+                  </h3>
+                  <p className="text-2xl font-bold text-purple-600">
+                    {dashboardData?.charts?.taskDistribution?.Completed || 0}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         )}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-md">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
@@ -155,6 +203,7 @@ const UserDashboard = () => {
               />
             </div>
           </div>
+
           <div className="bg-white p-6 rounded-xl shadow-md">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Task Priority Levels
@@ -164,6 +213,7 @@ const UserDashboard = () => {
             </div>
           </div>
         </div>
+
         {dashboardData?.recentTasks && (
           <RecentTasks tasks={dashboardData.recentTasks} />
         )}
